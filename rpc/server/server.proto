@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package twirp.supremacy.server;
+option go_package = "rpc/server";
+
+service Server {
+  rpc Yell(Material) returns (Shout);
+}
+
+message Material {
+  string content = 1;
+  int32 count = 2;
+}
+
+message Shout {
+  repeated string content = 1;
+  optional string lamentation = 2;
+}
